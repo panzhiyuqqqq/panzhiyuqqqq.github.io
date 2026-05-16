@@ -24,34 +24,3 @@
     font-style: italic;
 }
 
-/* =========================================
-   给整个博客正文区域加上好看的卡片式轮廓
-   ========================================= */
-
-/* 1. 设置整个页面的背景色（衬托白色的内容卡片） */
-body {
-    background-color: #f7f8f9 !important; /* 极淡的灰色 */
-}
-
-/* 2. 将主内容区域（包括文章列表和单篇文章）封装成一个干净的卡片 */
-/* 我们同时针对单页 (article) 和列表容器 (.posts) */
-main > article.post,
-main > div.posts {
-    background-color: #ffffff !important; /* 白色卡片背景 */
-    border: 1px solid #e1e4e8 !important; /* 1像素的淡灰色轮廓线 */
-    border-radius: 16px !important; /* 柔和的大圆角（呼应之前的图片美化） */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important; /* 轻微的浮起阴影 */
-    padding: 40px 50px !important; /* 给正文内容留出呼吸空间 */
-    margin-bottom: 40px !important;
-    margin-top: 20px !important; /* 加大离顶部的距离 */
-    max-width: 800px !important; /* 限制最大宽度，提高阅读舒适度 */
-    margin-left: auto !important; /* 居中 */
-    margin-right: auto !important; /* 居中 */
-}
-
-/* 3. 顺手调整一下大标题，截图里的标题（"Title"）实在是太大了 */
-.post-title {
-    font-size: 2.8em !important; /* 适度缩小 */
-    margin-bottom: 20px !important;
-    line-height: 1.2 !important;
-}
