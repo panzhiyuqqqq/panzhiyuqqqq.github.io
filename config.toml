@@ -261,7 +261,7 @@ uglyURLs = false
 
     twikoo = true
     twikooEnvId = "https://my-twikoo-comments.vercel.app/"
-    enableValine = true
+
 
 
 
@@ -616,7 +616,7 @@ uglyURLs = false
     disqusShortname = ""
 
     ## Valine
-    enableValine = false
+    enableValine = true
     valineAppId = ""
     valineAppKey = ""
     valinePlaceholder = "Just go go"
