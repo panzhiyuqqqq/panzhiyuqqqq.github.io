@@ -9,5 +9,4 @@ git commit -m "%msg%"
 git push -u origin main
 
 echo.
-echo -------- 指令已发送！请往上看是否有 error 报错 --------
 pause
