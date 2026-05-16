@@ -1,15 +1,15 @@
 /* =========================================
-   博客终极美化魔法合集 (完美兼容日夜模式)
+   博客全能美化皮肤 (主页+文章页+全平台黑夜模式完美适配)
    ========================================= */
 
-/* -----------------------------------------
-   ☀️ 【浅色/白天模式】样式
-   ----------------------------------------- */
+/* ☀️ 【1. 浅色/白天模式】 */
 body { 
     background-color: #f7f8f9 !important; 
 }
-main > article.post, 
-main > div.posts {
+
+/* 🎯 核心核心：将大卡片效果直接应用到整个 main 容器！
+   这样能确保你的主页日记列表、文章页全都有精致的独立大卡片 */
+main {
     background-color: #ffffff !important;
     border: 1px solid #e1e4e8 !important;
     border-radius: 16px !important;
@@ -18,13 +18,14 @@ main > div.posts {
     margin: 20px auto 40px auto !important;
     max-width: 800px !important;
 }
-/* 浅色模式下的底部标签小胶囊 */
+
+/* 白天模式下的底部标签小胶囊 */
 .post-tags a, 
 .tag-cloud a {
     display: inline-flex !important; 
     align-items: center !important;
     background-color: rgba(0, 0, 0, 0.05) !important; 
-    color: #1a73e8 !important; /* 经典的蓝色 */
+    color: #1a73e8 !important; 
     border-radius: 12px !important; 
     padding: 6px 14px !important;
     margin-right: 10px !important; 
@@ -42,35 +43,44 @@ main > div.posts {
 }
 
 
-/* -----------------------------------------
-   🌙 【深色/黑夜模式】自动适配
-   ----------------------------------------- */
-html.dark body {
-    background-color: #16171d !important; /* 呼应你 config 里的黑夜背景色 */
+/* 🌙 【2. 深色/黑夜模式】（全机制饱和式覆盖，彻底对准所有切换暗号） */
+
+/* 只要触发以下任何一个黑夜条件，就把网页大背景全面变黑 */
+html.dark body,
+body.dark,
+[data-theme="dark"] body,
+html[theme="dark"] body,
+html[data-theme="dark"] body {
+    background-color: #16171d !important; 
 }
-html.dark main > article.post, 
-html.dark main > div.posts {
-    background-color: #1f2026 !important; /* 暗色环境下的卡片变成深灰色 */
-    border: 1px solid #2d2f39 !important; /* 柔和的深色边框 */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important; /* 暗色阴影 */
+
+/* 黑夜模式下，main 大卡片全面换成好看的深灰色皮肤 */
+html.dark main,
+body.dark main,
+[data-theme="dark"] main,
+html[theme="dark"] main,
+html[data-theme="dark"] main {
+    background-color: #1f2026 !important; 
+    border: 1px solid #2d2f39 !important; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important; 
 }
-/* 黑夜模式下的底部标签小胶囊 */
-html.dark .post-tags a, 
-html.dark .tag-cloud a {
-    background-color: rgba(255, 255, 255, 0.08) !important; /* 浅色的胶囊背景 */
-    color: #6dba82 !important; /* 换成你 config 里写的好看的绿色，暗色下更护眼 */
+
+/* 黑夜模式下的底部标签小胶囊变绿 */
+html.dark .post-tags a, html.dark .tag-cloud a,
+body.dark .post-tags a, body.dark .tag-cloud a,
+[data-theme="dark"] .post-tags a, [data-theme="dark"] .tag-cloud a {
+    background-color: rgba(255, 255, 255, 0.08) !important; 
+    color: #6dba82 !important; 
 }
-html.dark .post-tags a:hover, 
-html.dark .tag-cloud a:hover {
+html.dark .post-tags a:hover, html.dark .tag-cloud a:hover,
+body.dark .post-tags a:hover, body.dark .tag-cloud a:hover {
     background-color: rgba(109, 186, 130, 0.15) !important;
     color: #81c794 !important;
 }
 
 
-/* -----------------------------------------
-   🎨 【通用公共样式】（图片与标题）
-   ----------------------------------------- */
-.post-title { 
+/* ✨ 【3. 通用公共样式】（图片与标题细节优化） */
+.post-title, .archive-title, .list-title { 
     font-size: 2.8em !important; 
     margin-bottom: 20px !important; 
     line-height: 1.2 !important; 
@@ -92,4 +102,21 @@ figcaption, .caption {
     color: #888 !important; 
     margin-top: 0.5em !important; 
     font-style: italic !important;
+}
+
+
+/* 🚨 终极防御：强行撑开底部塌陷，拒绝零件重叠 */
+#comments, .comments {
+    display: block !important;
+    clear: both !important;
+    width: 100% !important;
+    margin-bottom: 60px !important; /* 把底后的社交圈圈和页脚狠狠往下推 */
+}
+
+/* 给底部的页脚和那句漂亮的话留出绝对安全的呼吸和滚屏空间 */
+footer, .footer {
+    display: block !important;
+    clear: both !important;
+    margin-top: 80px !important;
+    padding-bottom: 120px !important; /* 预留足够的空白，防止被悬浮图标挡住 */
 }

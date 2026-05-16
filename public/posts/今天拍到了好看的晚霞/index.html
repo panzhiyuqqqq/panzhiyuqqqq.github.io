@@ -18,7 +18,7 @@
     <title>
 今天拍到了好看的晚霞 | 卧听风雨的博客</title>
 
-    <link rel="stylesheet" href="/css/meme.min.a43da4a3af8659ad9a347dce151effb24e68f76f177661ffa6b2ef2c227aaf5f.css"/>
+    <link rel="stylesheet" href="/css/meme.min.4ab3f1db195322e3f9832c9f98073dc16c70a74595cc13e87505a8b12ef415e2.css"/>
 
     
     
@@ -453,11 +453,47 @@
     
     
     
+        <ul class="post-nav">
+            
+                <li class="post-nav-prev">
+                    <a href="/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/" rel="prev">&lt; 
+终于完工啦嘿嘿</a>
+                </li>
+            
+            
+        </ul>
+    
 
 
 
-        
+        <div id="comments" class="comments" style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed #2d2f39; clear: both; width: 100%;">
+    
+    <div id="tcomment" style="width: 100%; min-height: 120px;"></div>
 
+</div>
+
+<style>
+    .load-comments, 
+    #load-comments, 
+    .comments + button, 
+    .post-footer button, 
+    button {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js"></script>
+<script>
+    twikoo.init({
+        envId: 'https:\/\/my-twikoo-comments.vercel.app\/',
+        el: '#tcomment',
+    })
+</script>
 
     </div>
 </main>
