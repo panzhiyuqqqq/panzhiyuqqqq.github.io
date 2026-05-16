@@ -105,18 +105,3 @@ figcaption, .caption {
 }
 
 
-/* 🚨 终极防御：强行撑开底部塌陷，拒绝零件重叠 */
-#comments, .comments {
-    display: block !important;
-    clear: both !important;
-    width: 100% !important;
-    margin-bottom: 60px !important; /* 把底后的社交圈圈和页脚狠狠往下推 */
-}
-
-/* 给底部的页脚和那句漂亮的话留出绝对安全的呼吸和滚屏空间 */
-footer, .footer {
-    display: block !important;
-    clear: both !important;
-    margin-top: 80px !important;
-    padding-bottom: 120px !important; /* 预留足够的空白，防止被悬浮图标挡住 */
-}
