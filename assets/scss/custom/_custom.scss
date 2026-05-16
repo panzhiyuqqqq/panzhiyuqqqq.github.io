@@ -24,3 +24,39 @@
     font-style: italic;
 }
 
+/* =========================================
+   美化文章标签：变成精致的圆角小色块（胶囊效果）
+   ========================================= */
+
+/* 针对文章底部的标签，以及单独的标签云页面 */
+.post-tags a,
+.tag-cloud a,
+a[href*="/tags/"] {
+    display: inline-block !important;
+    background-color: #f0f4f9 !important; /* 清新的浅灰蓝色背景（也可以换成你喜欢的颜色） */
+    color: #5f6368 !important; /* 柔和的深灰色文字 */
+    border-radius: 20px !important; /* 变身圆润的胶囊形状 */
+    padding: 4px 12px !important; /* 把色块撑起来 */
+    margin: 0 8px 8px 0 !important; /* 多个标签之间隔开一点 */
+    font-size: 0.85em !important; /* 字体稍微缩一点，显得更精致 */
+    text-decoration: none !important; /* 强行干掉难看的下划线 */
+    border: 1px solid transparent !important; /* 为互动动画做准备 */
+    transition: all 0.3s ease !important; /* 丝滑的过渡动画 */
+}
+
+/* 鼠标放上去（或手机点击）时的互动效果 */
+.post-tags a:hover,
+.tag-cloud a:hover,
+a[href*="/tags/"]:hover {
+    background-color: #e8eaed !important; /* 背景稍微加深 */
+    color: #1a73e8 !important; /* 文字变成跳跃的亮蓝色 */
+    transform: translateY(-2px) !important; /* 微微上浮一点点 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08) !important; /* 浮起时出现淡淡的阴影 */
+}
+
+/* 如果标签前面有自带的“#”或者图标，给它换个不那么抢眼的颜色 */
+.post-tags a i,
+.tag-cloud a i {
+    color: #9aa0a6 !important;
+    margin-right: 4px !important;
+}
