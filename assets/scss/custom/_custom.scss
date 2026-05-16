@@ -1,31 +1,48 @@
-/* =========================================
-   暴力覆盖：给所有正文图片加上圆角和阴影特效
-   ========================================= */
+/* 1. 页面背景与卡片式正文轮廓 */
+body { 
+    background-color: #f7f8f9 !important; 
+}
+main > article.post, 
+main > div.posts {
+    background-color: #ffffff !important;
+    border: 1px solid #e1e4e8 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    padding: 40px 50px !important;
+    margin: 20px auto 40px auto !important;
+    max-width: 800px !important;
+}
+.post-title { 
+    font-size: 2.8em !important; 
+    margin-bottom: 20px !important; 
+    line-height: 1.2 !important; 
+}
 
+/* 2. 暴力锁定：图片圆角与悬浮动画 */
 main img, 
 .post-body img, 
 article img, 
 figure img {
-    border-radius: 12px !important; /* 圆角特效 */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important; /* 立体阴影 */
+    border-radius: 12px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    display: block !important; 
-    margin-top: 1em !important;
-    margin-bottom: 1em !important;
+    display: block !important;
+    margin: 1em auto !important;
 }
-
-/* 鼠标放上去的浮动动画 */
 main img:hover, 
 .post-body img:hover, 
 article img:hover, 
 figure img:hover {
-    transform: translateY(-4px) !important; 
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2) !important; 
+    transform: translateY(-4px) !important;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2) !important;
 }
-
-/* =========================================
-   完美复刻：让文章底部的标签与顶部导航栏彻底统一
-   ========================================= */
+figcaption, .caption {
+    text-align: center !important; 
+    font-size: 0.9em !important; 
+    color: #888 !important; 
+    margin-top: 0.5em !important; 
+    font-style: italic !important;
+}
 
 /* 3. 精准锁定：底部标签胶囊（完美避开顶部导航栏） */
 .post-tags a, 
@@ -49,4 +66,3 @@ figure img:hover {
     transform: translateY(-2px) !important; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
 }
-
