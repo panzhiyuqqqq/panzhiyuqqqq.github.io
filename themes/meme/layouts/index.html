@@ -1,0 +1,171 @@
+{{ define "main" }}
+<div class="cyber-luxury-container">
+
+    <section class="art-poem-舱">
+        <div class="poem-glow-back"></div> <div class="poem-content-box">
+            {{ range .Site.Params.homePoetry }}
+                <p class="luxury-poem-line">{{ . | markdownify }}</p>
+            {{ else }}
+                <p class="luxury-poem-line">穿过暗淡的赛博迷雾</p>
+                <p class="luxury-poem-line">代码在矩阵的深处低语</p>
+            {{ end }}
+            
+            {{ with .Site.Params.homeMotto }}
+                <span class="luxury-poem-author">— {{ . }} —</span>
+            {{ end }}
+        </div>
+    </section>
+
+    <div class="luxury-divider"></div>
+
+    <section class="luxury-posts-section">
+        <div class="section-header-tag">
+            <span class="tag-dot"></span>
+            <span class="tag-text">RECENT ARTICLES / 编织篇章</span>
+        </div>
+        
+        <div class="luxury-parallel-grid">
+            {{ range first 6 .Site.RegularPages }}
+            <a href="{{ .Permalink }}" class="luxury-card-anchor">
+                <article class="luxury-post-card">
+                    <div class="card-glow-line"></div> <div class="card-body">
+                        <div class="card-date"># {{ .Date.Format "2006 / 01 / 02" }}</div>
+                        <h4 class="card-title">{{ .Title }}</h4>
+                        <p class="card-summary">{{ .Summary | plainify | truncate 65 }}</p>
+                        <div class="card-arrow">READ ARTICLE <span>→</span></div>
+                    </div>
+                </article>
+            </a>
+            {{ else }}
+            <div class="luxury-empty-hint">
+                <p>荒原里空无一物，等待着你用代码将其填满。</p>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+
+</div>
+
+<style>
+  /* 1. 全局字体与排版重构，强制注入现代高端无衬线字体系统 */
+  .cyber-luxury-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 2. 诗篇区：利用超大字距（letter-spacing）和浅灰配色，营造极致留白与清高感 */
+  .art-poem-舱 {
+    position: relative;
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 20px;
+  }
+  .poem-glow-back {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(87, 203, 222, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .luxury-poem-line {
+    font-size: 20px;
+    font-weight: 200; /* 极致纤细，杜绝臃肿 */
+    letter-spacing: 6px; /* 灵魂所在：超宽字距拉开高级感 */
+    color: #e2e8f0;
+    margin: 18px 0;
+    line-height: 2;
+    text-shadow: 0 0 20px rgba(255,255,255,0.1);
+  }
+  .luxury-poem-author {
+    display: block;
+    margin-top: 35px;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #64748b;
+    text-transform: uppercase;
+  }
+
+  /* 3. 分割线：渐变微光，从虚无切入青绿 */
+  .luxury-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), #57cbde, rgba(255,255,255,0.05), transparent);
+    margin: 40px auto;
+    width: 80%;
+  }
+
+  /* 4. 文章区块标签 */
+  .luxury-posts-section { margin-top: 20px; }
+  .section-header-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  .tag-dot {
+    width: 6px; height: 6px;
+    background-color: #57cbde;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #57cbde;
+  }
+  .tag-text {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  /* 5. 核心并列网格：2列对称并列，高级卡片排版 */
+  .luxury-parallel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* 精准控制并列宽度 */
+    gap: 24px;
+  }
+  .luxury-card-anchor { text-decoration: none !important; color: inherit; }
+  
+  /* 6. 毛玻璃艺术卡片本体 */
+  .luxury-post-card {
+    position: relative;
+    background: rgba(30, 34, 43, 0.4); /* 半透明暗色底 */
+    border: 1px solid rgba(255, 255, 255, 0.04); /* 极其内敛的微光边框 */
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .card-body { padding: 28px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
+  .card-glow-line {
+    position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(to right, #57cbde, #90ba3c);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .card-date { font-family: monospace; font-size: 11px; color: #64748b; margin-bottom: 12px; }
+  .card-title { margin: 0 0 12px 0; font-size: 19px; color: #f1f5f9; font-weight: 500; line-height: 1.4; }
+  .card-summary { margin: 0 0 20px 0; font-size: 13.5px; color: #94a3b8; line-height: 1.6; font-weight: 300; }
+  .card-arrow { margin-top: auto; font-size: 11px; font-weight: bold; color: #64748b; letter-spacing: 1px; transition: color 0.3s; }
+  .card-arrow span { transition: transform 0.3s; display: inline-block; }
+
+  /* 7. 炫酷的鼠标悬停交互效应（Hover State） */
+  .luxury-post-card:hover {
+    transform: translateY(-5px);
+    background: rgba(30, 34, 43, 0.85);
+    border-color: rgba(87, 203, 222, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(87, 203, 222, 0.05);
+  }
+  .luxury-post-card:hover .card-glow-line { opacity: 1; }
+  .luxury-post-card:hover .card-title { color: #57cbde; } /* 标题变色 */
+  .luxury-post-card:hover .card-arrow { color: #90ba3c; } /* 箭头变绿 */
+  .luxury-post-card:hover .card-arrow span { transform: translateX(5px); }
+
+  /* 手机端自动降维成单列，防止样式崩溃 */
+  @media (max-width: 768px) {
+    .luxury-parallel-grid { grid-template-columns: 1fr; }
+    .luxury-poem-line { font-size: 16px; letter-spacing: 4px; }
+  }
+  .luxury-empty-hint { grid-column: 1/-1; text-align: center; color: #64748b; padding: 60px 0; font-size: 14px; }
+</style>
+{{ end }}
