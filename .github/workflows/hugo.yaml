@@ -43,13 +43,15 @@ jobs:
         with:
           path: ./public
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deploy
-        uses: actions/deploy-pages@v4
+  -name: Build with Hugo
+  run: hugo --minify
+
+  -name: Deploy to Alibaba Cloud ECS 🚀
+  uses: easingthemes/ssh-deploy@v5.1.0
+  with:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      ARGS: "-rlgoDIVz --delete"
+      SOURCE: "public/" # Hugo 编译出来的静态网页文件夹
+      REMOTE_HOST: ${{ secrets.SERVER_IP }}
+      REMOTE_USER: "root"
+      TARGET: "/var/www/blog/" # 我们在服务器上建的接收文件夹
