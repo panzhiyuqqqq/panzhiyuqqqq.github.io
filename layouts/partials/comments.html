@@ -1,0 +1,11 @@
+<div id="tcomment" style="margin-top: 40px; padding-top: 20px; border-top: 1px dashed #e1e4e8;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js"></script>
+
+<script>
+    twikoo.init({
+        // 机器人会自动去你的 config.toml 里抓取你填写的那个 .vercel.app 网址
+        envId: '{{ .Site.Params.twikooEnvId }}',
+        el: '#tcomment',
+    })
+</script>
