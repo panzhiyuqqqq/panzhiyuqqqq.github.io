@@ -87,9 +87,3 @@ body.dark .post-tags a:hover, body.dark .tag-cloud a:hover {
 }
 
 
-/* 🏷️ 3. 细节修饰：在胶囊文字前面自动塞入一个可爱的标签 Emoji */
-.post-tags a::before { 
-    content: "🏷️" !important; 
-    margin-right: 5px !important; 
-    font-size: 0.9em !important; 
-}
