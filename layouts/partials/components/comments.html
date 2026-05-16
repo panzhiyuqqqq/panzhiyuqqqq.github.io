@@ -17,10 +17,11 @@
     }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.39/dist/twikoo.all.min.js"></script>
 <script>
-    twikoo.init({
-        envId: '{{ .Site.Params.twikooEnvId }}',
-        el: '#tcomment',
-    })
+twikoo.init({
+  envId: 'http://47.96.117.225:8081', // 笔直指向你的阿里云评论大门！
+  el: '#tcomment',
+})
 </script>
