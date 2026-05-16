@@ -1,22 +1,13 @@
-name: Deploy Hugo site to Pages
+# 自动编译并部署到阿里云服务器的黄金工作流
+name: Deploy Hugo to Alibaba Cloud ECS
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
+    branches:
+      - main  # 当你 push 代码到 main 分支时自动触发
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-defaults:
-  run:
-    shell: bash
 
 jobs:
   build:
@@ -26,32 +17,24 @@ jobs:
     steps:
       - name: Install Hugo CLI
         run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${{ HUGO_VERSION }}/hugo_extended_${{ HUGO_VERSION }}_linux-amd64.deb
+          sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v4
-      - name: Build with Hugo
-        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+
+      - name: Build with Hugo 🛠️
+        run: hugo --minify
+
+      - name: Deploy to Alibaba Cloud ECS 🚀
+        uses: easingthemes/ssh-deploy@v5.1.0
         with:
-          path: ./public
-
-  -name: Build with Hugo
-  run: hugo --minify
-
-  -name: Deploy to Alibaba Cloud ECS 🚀
-  uses: easingthemes/ssh-deploy@v5.1.0
-  with:
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      ARGS: "-rlgoDIVz --delete"
-      SOURCE: "public/" # Hugo 编译出来的静态网页文件夹
-      REMOTE_HOST: ${{ secrets.SERVER_IP }}
-      REMOTE_USER: "root"
-      TARGET: "/var/www/blog/" # 我们在服务器上建的接收文件夹
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDIVz --delete"
+          SOURCE: "public/"
+          REMOTE_HOST: ${{ secrets.SERVER_IP }}
+          REMOTE_USER: "root"
+          TARGET: "/var/www/blog/"
