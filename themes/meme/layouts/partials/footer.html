@@ -97,3 +97,23 @@
     opacity: 1; /* 鼠标滑过时变清晰 */
   }
 </style>
+
+<div id="read-progress"></div>
+<style>
+  #read-progress {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    /* 标志性的赛博朋克霓虹渐变色：青绿切紫蓝 */
+    background: linear-gradient(to right, #57cbde, #90ba3c, #b457de);
+    z-index: 100000;
+    transition: width 0.1s ease-out;
+  }
+</style>
+<script>
+  window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('read-progress').style.width = scrolled + '%';
+  });
+</script>
