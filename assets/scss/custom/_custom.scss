@@ -1,77 +1,85 @@
 /* =========================================
-   博客全能美化皮肤 (主页+文章页+全平台黑夜模式完美适配)
+   安全精修皮肤（纯细节点缀，绝不触碰背景与布局骨架）
    ========================================= */
 
-/* ☀️ 【1. 浅色/白天模式】 */
-body { 
-    background-color: #f7f8f9 !important; 
+/* 📸 1. 图片艺术化：加入圆角、柔和阴影与丝滑的鼠标悬浮浮动效果 */
+main img, 
+.post-body img, 
+article img, 
+figure img {
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    margin: 1.5em auto;
 }
 
-/* 🎯 核心核心：将大卡片效果直接应用到整个 main 容器！
-   这样能确保你的主页日记列表、文章页全都有精致的独立大卡片 */
-main {
-    background-color: #ffffff !important;
-    border: 1px solid #e1e4e8 !important;
-    border-radius: 16px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
-    padding: 40px 50px !important;
-    margin: 20px auto 40px auto !important;
-    max-width: 800px !important;
+/* 鼠标放上去时，图片会微微抬起，极具动态高级感 */
+main img:hover, 
+.post-body img:hover, 
+article img:hover, 
+figure img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
 }
 
-/* 白天模式下的底部标签小胶囊 */
+/* 图片下方的说明文字居中、变小、变斜体 */
+figcaption, 
+.caption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 0.5em;
+    font-style: italic;
+}
+
+
+
+/* 🧼 3. 页脚安全仓：纯粹给页脚留出一点点向下的呼吸空间，防止太紧凑 */
+footer, 
+.footer {
+    padding-bottom: 40px;
+}
+
+/* =========================================
+   🏷️ 独立标签胶囊外壳定制 (100%安全，不影响布局与日夜切换)
+   ========================================= */
+
+/* ☀️ 1. 白天模式下的标签胶囊 */
 .post-tags a, 
 .tag-cloud a {
     display: inline-flex !important; 
     align-items: center !important;
-    background-color: rgba(0, 0, 0, 0.05) !important; 
-    color: #1a73e8 !important; 
-    border-radius: 12px !important; 
-    padding: 6px 14px !important;
-    margin-right: 10px !important; 
+    background-color: rgba(0, 0, 0, 0.04) !important; /* 柔和的浅灰色背景 */
+    color: #1a73e8 !important; /* 优雅的亮蓝色文字 */
+    border-radius: 50px !important; /* 50px 完美呈现长条椭圆“胶囊”状 */
+    padding: 4px 14px !important; /* 上下内边距小，左右内边距大 */
+    margin-right: 8px !important; 
     margin-bottom: 10px !important;
-    font-size: 0.9em !important; 
+    font-size: 0.85em !important; 
     text-decoration: none !important; 
     font-weight: 500 !important;
-    transition: all 0.25s ease !important;
+    transition: all 0.2s ease !important; /* 悬浮动画速度 */
 }
+
+/* 白天模式下鼠标放上去的动效：微微浮起，背景变蓝 */
 .post-tags a:hover, 
 .tag-cloud a:hover {
     background-color: rgba(26, 123, 232, 0.1) !important;
-    transform: translateY(-2px) !important; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-1px) !important; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06) !important;
 }
 
 
-/* 🌙 【2. 深色/黑夜模式】（全机制饱和式覆盖，彻底对准所有切换暗号） */
-
-/* 只要触发以下任何一个黑夜条件，就把网页大背景全面变黑 */
-html.dark body,
-body.dark,
-[data-theme="dark"] body,
-html[theme="dark"] body,
-html[data-theme="dark"] body {
-    background-color: #16171d !important; 
-}
-
-/* 黑夜模式下，main 大卡片全面换成好看的深灰色皮肤 */
-html.dark main,
-body.dark main,
-[data-theme="dark"] main,
-html[theme="dark"] main,
-html[data-theme="dark"] main {
-    background-color: #1f2026 !important; 
-    border: 1px solid #2d2f39 !important; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important; 
-}
-
-/* 黑夜模式下的底部标签小胶囊变绿 */
+/* 🌙 2. 暗黑模式下的标签胶囊自动适配 (全暗号覆盖) */
 html.dark .post-tags a, html.dark .tag-cloud a,
 body.dark .post-tags a, body.dark .tag-cloud a,
 [data-theme="dark"] .post-tags a, [data-theme="dark"] .tag-cloud a {
-    background-color: rgba(255, 255, 255, 0.08) !important; 
-    color: #6dba82 !important; 
+    background-color: rgba(255, 255, 255, 0.08) !important; /* 换成夜间半透明白背景 */
+    color: #6dba82 !important; /* 换成护眼的亮绿色文字，夜间更好看 */
 }
+
+/* 暗黑模式下的鼠标悬浮动效 */
 html.dark .post-tags a:hover, html.dark .tag-cloud a:hover,
 body.dark .post-tags a:hover, body.dark .tag-cloud a:hover {
     background-color: rgba(109, 186, 130, 0.15) !important;
@@ -79,29 +87,9 @@ body.dark .post-tags a:hover, body.dark .tag-cloud a:hover {
 }
 
 
-/* ✨ 【3. 通用公共样式】（图片与标题细节优化） */
-.post-title, .archive-title, .list-title { 
-    font-size: 2.8em !important; 
-    margin-bottom: 20px !important; 
-    line-height: 1.2 !important; 
-}
-main img, .post-body img, article img, figure img {
-    border-radius: 12px !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    display: block !important;
-    margin: 1em auto !important;
-}
-main img:hover, .post-body img:hover, article img:hover, figure img:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2) !important;
-}
-figcaption, .caption {
-    text-align: center !important; 
+/* 🏷️ 3. 细节修饰：在胶囊文字前面自动塞入一个可爱的标签 Emoji */
+.post-tags a::before { 
+    content: "🏷️" !important; 
+    margin-right: 5px !important; 
     font-size: 0.9em !important; 
-    color: #888 !important; 
-    margin-top: 0.5em !important; 
-    font-style: italic !important;
 }
-
-

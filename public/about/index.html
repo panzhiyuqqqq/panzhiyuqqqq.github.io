@@ -18,7 +18,7 @@
     <title>
 关于我 | 卧听风雨的博客</title>
 
-    <link rel="stylesheet" href="/css/meme.min.4bae37e233699fd020f1677e483ff4076d1da6a68422b42ce26ce0bc7e8db1d6.css"/>
+    <link rel="stylesheet" href="/css/meme.min.dd37465cec2788ac38714723930710c4010f995eff94977f18a07e6d30690b3e.css"/>
 
     
     
@@ -409,13 +409,30 @@
         
 
 
-        <div id="tcomment" style="margin-top: 40px; padding-top: 20px; border-top: 1px dashed #e1e4e8;"></div>
+        <div id="comments" class="comments" style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed #2d2f39; clear: both; width: 100%;">
+    
+    <div id="tcomment" style="width: 100%; min-height: 120px;"></div>
+
+</div>
+
+<style>
+    .load-comments, 
+    #load-comments, 
+    .comments + button, 
+    .post-footer button, 
+    button {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+</style>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js"></script>
-
 <script>
     twikoo.init({
-        
         envId: 'https:\/\/my-twikoo-comments.vercel.app\/',
         el: '#tcomment',
     })
