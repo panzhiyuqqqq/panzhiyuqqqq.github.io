@@ -258,6 +258,12 @@ uglyURLs = false
 
     enableJustifyText = true
 
+    enableComments = true      # 确保总开关打开
+    autoLoadComments = true
+
+    twikoo = true
+    twikooEnvId = "https://my-twikoo-comments.vercel.app/"
+
 
 
 
@@ -683,7 +689,7 @@ uglyURLs = false
     # 说明：https://github.com/gitalk/gitalk
 
     ## Giscus
-    enableGiscus = true
+    enableGiscus = false
     giscusRepo = "panzhiyuqqqq/panzhiyuqqqq.github.io"
     giscusRepoId = "R_kgDOSepm-A"
     giscusCategory = "Announcements"
