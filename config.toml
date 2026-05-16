@@ -258,8 +258,6 @@ uglyURLs = false
 
     enableJustifyText = true
 
-    enableComments = true      # 确保总开关打开
-    autoLoadComments = true
 
     twikoo = true
     twikooEnvId = "https://my-twikoo-comments.vercel.app/"
