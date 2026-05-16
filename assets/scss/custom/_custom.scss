@@ -1,4 +1,10 @@
-/* 1. 页面背景与卡片式正文轮廓 */
+/* =========================================
+   博客终极美化魔法合集 (完美兼容日夜模式)
+   ========================================= */
+
+/* -----------------------------------------
+   ☀️ 【浅色/白天模式】样式
+   ----------------------------------------- */
 body { 
     background-color: #f7f8f9 !important; 
 }
@@ -12,45 +18,13 @@ main > div.posts {
     margin: 20px auto 40px auto !important;
     max-width: 800px !important;
 }
-.post-title { 
-    font-size: 2.8em !important; 
-    margin-bottom: 20px !important; 
-    line-height: 1.2 !important; 
-}
-
-/* 2. 暴力锁定：图片圆角与悬浮动画 */
-main img, 
-.post-body img, 
-article img, 
-figure img {
-    border-radius: 12px !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    display: block !important;
-    margin: 1em auto !important;
-}
-main img:hover, 
-.post-body img:hover, 
-article img:hover, 
-figure img:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2) !important;
-}
-figcaption, .caption {
-    text-align: center !important; 
-    font-size: 0.9em !important; 
-    color: #888 !important; 
-    margin-top: 0.5em !important; 
-    font-style: italic !important;
-}
-
-/* 3. 精准锁定：底部标签胶囊（完美避开顶部导航栏） */
+/* 浅色模式下的底部标签小胶囊 */
 .post-tags a, 
 .tag-cloud a {
     display: inline-flex !important; 
     align-items: center !important;
     background-color: rgba(0, 0, 0, 0.05) !important; 
-    color: #1a73e8 !important;
+    color: #1a73e8 !important; /* 经典的蓝色 */
     border-radius: 12px !important; 
     padding: 6px 14px !important;
     margin-right: 10px !important; 
@@ -65,4 +39,57 @@ figcaption, .caption {
     background-color: rgba(26, 123, 232, 0.1) !important;
     transform: translateY(-2px) !important; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+
+/* -----------------------------------------
+   🌙 【深色/黑夜模式】自动适配
+   ----------------------------------------- */
+html.dark body {
+    background-color: #16171d !important; /* 呼应你 config 里的黑夜背景色 */
+}
+html.dark main > article.post, 
+html.dark main > div.posts {
+    background-color: #1f2026 !important; /* 暗色环境下的卡片变成深灰色 */
+    border: 1px solid #2d2f39 !important; /* 柔和的深色边框 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important; /* 暗色阴影 */
+}
+/* 黑夜模式下的底部标签小胶囊 */
+html.dark .post-tags a, 
+html.dark .tag-cloud a {
+    background-color: rgba(255, 255, 255, 0.08) !important; /* 浅色的胶囊背景 */
+    color: #6dba82 !important; /* 换成你 config 里写的好看的绿色，暗色下更护眼 */
+}
+html.dark .post-tags a:hover, 
+html.dark .tag-cloud a:hover {
+    background-color: rgba(109, 186, 130, 0.15) !important;
+    color: #81c794 !important;
+}
+
+
+/* -----------------------------------------
+   🎨 【通用公共样式】（图片与标题）
+   ----------------------------------------- */
+.post-title { 
+    font-size: 2.8em !important; 
+    margin-bottom: 20px !important; 
+    line-height: 1.2 !important; 
+}
+main img, .post-body img, article img, figure img {
+    border-radius: 12px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    display: block !important;
+    margin: 1em auto !important;
+}
+main img:hover, .post-body img:hover, article img:hover, figure img:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2) !important;
+}
+figcaption, .caption {
+    text-align: center !important; 
+    font-size: 0.9em !important; 
+    color: #888 !important; 
+    margin-top: 0.5em !important; 
+    font-style: italic !important;
 }
