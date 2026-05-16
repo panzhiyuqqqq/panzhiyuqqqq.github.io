@@ -258,6 +258,8 @@ uglyURLs = false
 
     enableJustifyText = true
 
+    fontFamily = '"LXGW WenKai Screen", "PingFang SC", "Microsoft YaHei", sans-serif'
+
 
 
 
