@@ -2,7 +2,7 @@
 # 站点配置
 
 baseURL = "https://panzhiyuqqqq.github.io/"
-title = "潘治宇的碎碎念"
+title = "卧听风雨的博客"
 locale = "zh-CN"
 hasCJKLanguage = true
 # 版权信息（支持 Markdown）
