@@ -1,40 +1,39 @@
-# 自动编译并部署到阿里云服务器的黄金工作流
-name: Deploy Hugo to Alibaba Cloud ECS
+name: Deploy Hugo to Alibaba Cloud
 
 on:
   push:
     branches:
-      - main  # 当你 push 代码到 main 分支时自动触发
-
-permissions:
-  contents: read
+      - main  # 触发条件：推送到 main 分支
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-      HUGO_VERSION: 0.141.0
     steps:
-      - name: Install Hugo CLI
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${{ HUGO_VERSION }}/hugo_extended_${{ HUGO_VERSION }}_linux-amd64.deb
-          sudo dpkg -i ${{ runner.temp }}/hugo.deb
-
-      - name: Checkout
+      # 1. 获取最新代码
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Build with Hugo 🛠️
+      # 2. 自动配置 Hugo 环境（官方神仙插件，免去一切手动安装烦恼）
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest' # 永远使用最新版
+          extended: true         # 开启扩展版以支持 Meme 主题的样式编译
+
+      # 3. 编译静态网页
+      - name: Build Blog
         run: hugo --minify
 
-      - name: Deploy to Alibaba Cloud ECS 🚀
-        uses: easingthemes/ssh-deploy@v5.1.0
+      # 4. 暴力传输到阿里云（无需服务器预装任何传输软件）
+      - name: Deploy to Server
+        uses: appleboy/scp-action@v0.1.7
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDIVz --delete"
-          SOURCE: "public/"
-          REMOTE_HOST: ${{ secrets.SERVER_IP }}
-          REMOTE_USER: "root"
-          TARGET: "/var/www/blog/"
+          host: ${{ secrets.SERVER_IP }}
+          username: "root"
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "public/*"
+          target: "/var/www/blog/"
+          strip_components: 1 # 神奇开关：剥离外层 public 文件夹，把里面的网页直接倒进 blog 里
