@@ -1,27 +1,26 @@
 /* =========================================
-   给日常分享的图片添加画廊级别的美化效果
+   暴力覆盖：给所有正文图片加上圆角和阴影特效
    ========================================= */
 
-.post-body img {
-    border-radius: 12px; /* 柔和的圆角，看起来不那么生硬 */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* 非常轻柔的阴影，增加立体感 */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 动画过渡效果 */
-    margin-bottom: 0.5em; /* 给图片下方留点呼吸空间 */
+main img, 
+.post-body img, 
+article img, 
+figure img {
+    border-radius: 12px !important; /* 圆角特效 */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important; /* 立体阴影 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    display: block !important; 
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
 }
 
-/* 鼠标放上去时的互动效果（手机端则是手指轻触时） */
-.post-body img:hover {
-    transform: translateY(-4px); /* 照片微微向上悬浮 */
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15); /* 阴影加深变大 */
-}
-
-/* 美化图片下方的说明文字（图注） */
-.post-body figcaption, .post-body .caption {
-    text-align: center;
-    font-size: 0.9em;
-    color: #888;
-    margin-top: 0.5em;
-    font-style: italic;
+/* 鼠标放上去的浮动动画 */
+main img:hover, 
+.post-body img:hover, 
+article img:hover, 
+figure img:hover {
+    transform: translateY(-4px) !important; 
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2) !important; 
 }
 
 /* =========================================
