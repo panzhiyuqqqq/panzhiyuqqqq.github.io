@@ -1,162 +1,18 @@
 {{ define "main" }}
-<div class="cyber-luxury-container">
-
-    <section class="art-poem-box">
-        <div class="poem-glow-back"></div>
-        <div class="poem-content-box">
-            {{ range .Site.Params.homePoetry }}
-                <p class="luxury-poem-line">{{ . | markdownify }}</p>
-            {{ else }}
-                <p class="luxury-poem-line">穿过暗淡的赛博迷雾</p>
-                <p class="luxury-poem-line">代码在矩阵的深处低语</p>
-            {{ end }}
-            
-            {{ with .Site.Params.homeMotto }}
-                <span class="luxury-poem-author">— {{ . }} —</span>
-            {{ end }}
-        </div>
-    </section>
-
-    <div class="luxury-divider"></div>
-
-    <section class="luxury-posts-section">
-        <div class="section-header-tag">
-            <span class="tag-dot"></span>
-            <span class="tag-text">RECENT ARTICLES / 编织篇章</span>
-        </div>
-        
-        <div class="luxury-parallel-grid">
-            {{ range first 6 (where .Site.RegularPages "Layout" "!=" "about") }}
-            <a href="{{ .Permalink }}" class="luxury-card-anchor">
-                <article class="luxury-post-card">
-                    <div class="card-glow-line"></div> 
-                    <div class="card-body">
-                        <div class="card-date"># {{ .Date.Format "2006 / 01 / 02" }}</div>
-                        <h4 class="card-title">{{ .Title }}</h4>
-                        <p class="card-summary">{{ .Summary | plainify | truncate 65 }}</p>
-                        <div class="card-arrow">READ ARTICLE <span>→</span></div>
-                    </div>
-                </article>
-            </a>
-            {{ else }}
-            <div class="luxury-empty-hint">
-                <p>荒原里空无一物，等待着你用代码将其填满。</p>
-            </div>
-            {{ end }}
-        </div>
-    </section>
-
-</div>
-
-<style>
-  .cyber-luxury-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 24px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .art-poem-box {
-    position: relative;
-    text-align: center;
-    padding: 50px 0;
-  }
-  .poem-glow-back {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(87, 203, 222, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .luxury-poem-line {
-    font-size: 21px;
-    font-weight: 300; 
-    letter-spacing: 6px; 
-    color: #0f172a; 
-    margin: 16px 0;
-    line-height: 2;
-  }
-  .luxury-poem-author {
-    display: block;
-    margin-top: 25px;
-    font-size: 11px;
-    letter-spacing: 4px;
-    color: #94a3b8;
-    text-transform: uppercase;
-  }
-
-  .luxury-divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, #e2e8f0, #57cbde, #e2e8f0, transparent);
-    margin: 30px auto;
-    width: 80%;
-  }
-
-  .luxury-posts-section { margin-top: 10px; }
-  .section-header-tag {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 25px;
-  }
-  .tag-dot {
-    width: 6px; height: 6px;
-    background-color: #57cbde;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #57cbde;
-  }
-  .tag-text {
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #94a3b8;
-    font-weight: 600;
-  }
-
-  .luxury-parallel-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
-    gap: 24px;
-  }
-  .luxury-card-anchor { text-decoration: none !important; color: inherit; }
-  
-  .luxury-post-card {
-    position: relative;
-    background: #ffffff; 
-    border: 1px solid #e2e8f0; 
-    border-radius: 12px;
-    overflow: hidden;
-    height: 100%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
-  .card-body { padding: 28px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
-  .card-glow-line {
-    position: absolute; top: 0; left: 0; width: 100%; height: 3px;
-    background: linear-gradient(to right, #57cbde, #90ba3c);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  .card-date { font-family: monospace; font-size: 11px; color: #94a3b8; margin-bottom: 12px; }
-  .card-title { margin: 0 0 12px 0; font-size: 19px; color: #1e293b; font-weight: 600; line-height: 1.4; }
-  .card-summary { margin: 0 0 20px 0; font-size: 13.5px; color: #475569; line-height: 1.6; font-weight: 400; }
-  .card-arrow { margin-top: auto; font-size: 11px; font-weight: bold; color: #94a3b8; letter-spacing: 1px; transition: color 0.3s; }
-  .card-arrow span { transition: transform 0.3s; display: inline-block; }
-
-  .luxury-post-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(87, 203, 222, 0.5);
-    box-shadow: 0 15px 35px rgba(87, 203, 222, 0.12); 
-  }
-  .luxury-post-card:hover .card-glow-line { opacity: 1; }
-  .luxury-post-card:hover .card-title { color: #57cbde; } 
-  .luxury-post-card:hover .card-arrow { color: #90ba3c; } 
-  .luxury-post-card:hover .card-arrow span { transform: translateX(5px); }
-
-  @media (max-width: 768px) {
-    .luxury-parallel-grid { grid-template-columns: 1fr; }
-    .luxury-poem-line { font-size: 17px; letter-spacing: 4px; }
-  }
-</style>
+    <!-- Layout Poetry -->
+    {{ if eq .Site.Params.homeLayout "poetry" }}
+        {{ partial "pages/home-poetry.html" . }}
+    {{ end }}
+    <!-- Layout Footage -->
+    {{ if eq .Site.Params.homeLayout "footage" }}
+        {{ partial "pages/home-footage.html" . }}
+    {{ end }}
+    <!-- Layout Posts -->
+    {{ if eq .Site.Params.homeLayout "posts" }}
+        {{ partial "pages/home-posts.html" . }}
+    {{ end }}
+    <!-- Layout Page -->
+    {{ if eq .Site.Params.homeLayout "page" }}
+        {{ partial "pages/post.html" . }}
+    {{ end }}
 {{ end }}
