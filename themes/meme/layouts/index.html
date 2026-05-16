@@ -1,18 +1,60 @@
 {{ define "main" }}
-    <!-- Layout Poetry -->
-    {{ if eq .Site.Params.homeLayout "poetry" }}
-        {{ partial "pages/home-poetry.html" . }}
-    {{ end }}
-    <!-- Layout Footage -->
-    {{ if eq .Site.Params.homeLayout "footage" }}
-        {{ partial "pages/home-footage.html" . }}
-    {{ end }}
-    <!-- Layout Posts -->
-    {{ if eq .Site.Params.homeLayout "posts" }}
-        {{ partial "pages/home-posts.html" . }}
-    {{ end }}
-    <!-- Layout Page -->
-    {{ if eq .Site.Params.homeLayout "page" }}
-        {{ partial "pages/post.html" . }}
-    {{ end }}
+<div class="cyber-home-container">
+
+    <section class="poem-container">
+        <div class="poem-wrapper">
+            {{ range .Site.Params.homePoetry }}
+                <p class="poem-line">{{ . | markdownify }}</p>
+            {{ else }}
+                <p class="poem-line">穿过暗淡的赛博迷雾，</p>
+                <p class="poem-line">代码在矩阵的深处低语。</p>
+            {{ end }}
+            
+            {{ with .Site.Params.homeMotto }}
+                <span class="poem-author">— {{ . }}</span>
+            {{ end }}
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="posts-container">
+        <h3 class="posts-section-title">📂 编织篇章 (最新文章)</h3>
+        
+        <div class="posts-parallel-grid">
+            {{ range first 6 .Site.RegularPages }}
+            <a href="{{ .Permalink }}" class="post-card-link">
+                <article class="parallel-post-card">
+                    <div class="post-card-meta">
+                        <span class="post-card-date">📅 {{ .Date.Format "2006-01-02" }}</span>
+                    </div>
+                    <h4 class="post-card-title">{{ .Title }}</h4>
+                    <p class="post-card-summary">{{ .Summary | plainify | truncate 70 }}</p>
+                </article>
+            </a>
+            {{ else }}
+            <div class="no-posts-hint">
+                荒原里空无一物。快去本地 <code>content/posts/</code> 目录下写点什么吧！
+            </div>
+            {{ end }}
+        </div>
+    </section>
+
+</div>
+
+<style>
+  .cyber-home-container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+  .poem-container { text-align: center; padding: 60px 0; background: linear-gradient(to bottom, rgba(255,255,255,0.02), transparent); border-radius: 12px; }
+  .poem-line { font-size: 18px; letter-spacing: 3px; color: #ececec; margin: 12px 0; font-weight: 300; line-height: 1.8; }
+  .poem-author { display: block; margin-top: 20px; font-size: 13px; color: #8f98a0; font-style: italic; }
+  .section-divider { height: 1px; background: linear-gradient(to right, transparent, #282c34, #57cbde, #282c34, transparent); margin: 40px 0; }
+  .posts-section-title { font-size: 16px; color: #8f98a0; margin-bottom: 25px; border-left: 3px solid #57cbde; padding-left: 10px; }
+  .posts-parallel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+  .post-card-link { text-decoration: none !important; color: inherit; }
+  .parallel-post-card { background: #1e222b; border: 1px solid #282c34; border-radius: 8px; padding: 22px; height: 100%; box-sizing: border-box; transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .parallel-post-card:hover { border-color: #57cbde; transform: translateY(-4px); box-shadow: 0 8px 20px rgba(87, 203, 222, 0.15); }
+  .post-card-meta { font-size: 11px; color: #8f98a0; margin-bottom: 8px; }
+  .post-card-title { margin: 0 0 10px 0; font-size: 18px; color: #ececec; font-weight: 600; }
+  .post-card-summary { margin: 0; font-size: 13px; color: #8f98a0; line-height: 1.6; }
+</style>
 {{ end }}
