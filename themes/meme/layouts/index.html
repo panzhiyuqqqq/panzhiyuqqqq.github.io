@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="cyber-luxury-container">
 
-    <section class="art-poem-舱">
+    <section class="art-poem-box">
         <div class="poem-glow-back"></div>
         <div class="poem-content-box">
             {{ range .Site.Params.homePoetry }}
@@ -57,8 +57,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* 诗篇区：明亮模式下采用高级深石板色（#0f172a），彻底告别看不清的尴尬 */
-  .art-poem-舱 {
+  .art-poem-box {
     position: relative;
     text-align: center;
     padding: 50px 0;
@@ -75,7 +74,7 @@
     font-size: 21px;
     font-weight: 300; 
     letter-spacing: 6px; 
-    color: #0f172a; /* 饱满沉稳的墨黑色 */
+    color: #0f172a; 
     margin: 16px 0;
     line-height: 2;
   }
@@ -122,15 +121,14 @@
   }
   .luxury-card-anchor { text-decoration: none !important; color: inherit; }
   
-  /* 象牙白悬浮卡片：极细腻的阴影，完美融入白色背景 */
   .luxury-post-card {
     position: relative;
-    background: #ffffff; /* 纯白无瑕底色 */
-    border: 1px solid #e2e8f0; /* 极其浅淡的现代边框 */
+    background: #ffffff; 
+    border: 1px solid #e2e8f0; 
     border-radius: 12px;
     overflow: hidden;
     height: 100%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* 极其轻柔的阴影 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   .card-body { padding: 28px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
@@ -144,4 +142,21 @@
   .card-title { margin: 0 0 12px 0; font-size: 19px; color: #1e293b; font-weight: 600; line-height: 1.4; }
   .card-summary { margin: 0 0 20px 0; font-size: 13.5px; color: #475569; line-height: 1.6; font-weight: 400; }
   .card-arrow { margin-top: auto; font-size: 11px; font-weight: bold; color: #94a3b8; letter-spacing: 1px; transition: color 0.3s; }
-  .card
+  .card-arrow span { transition: transform 0.3s; display: inline-block; }
+
+  .luxury-post-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(87, 203, 222, 0.5);
+    box-shadow: 0 15px 35px rgba(87, 203, 222, 0.12); 
+  }
+  .luxury-post-card:hover .card-glow-line { opacity: 1; }
+  .luxury-post-card:hover .card-title { color: #57cbde; } 
+  .luxury-post-card:hover .card-arrow { color: #90ba3c; } 
+  .luxury-post-card:hover .card-arrow span { transform: translateX(5px); }
+
+  @media (max-width: 768px) {
+    .luxury-parallel-grid { grid-template-columns: 1fr; }
+    .luxury-poem-line { font-size: 17px; letter-spacing: 4px; }
+  }
+</style>
+{{ end }}
