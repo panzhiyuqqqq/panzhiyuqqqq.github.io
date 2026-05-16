@@ -27,32 +27,26 @@ figure img:hover {
    完美复刻：让文章底部的标签与顶部导航栏彻底统一
    ========================================= */
 
-/* 1. 精准锁定文章底部的标签 */
-.post-tags a {
-    display: inline-flex !important; /* 使用弹性布局 */
-    align-items: center !important;  /* 图标和文字垂直居中 */
-    background-color: rgba(0, 0, 0, 0.05) !important; /* 复刻：导航栏同款极淡灰色背景 */
-    color: #1a73e8 !important; /* 复刻：导航栏同款标志性亮蓝色字体 */
-    border-radius: 12px !important; /* 复刻：温润的微圆角（类似小胶囊） */
-    padding: 6px 14px !important; /* 撑开色块，保持和上方一样微胖精致的身材 */
-    margin-right: 10px !important; /* 多个标签之间的间距 */
+/* 3. 精准锁定：底部标签胶囊（完美避开顶部导航栏） */
+.post-tags a, 
+.tag-cloud a {
+    display: inline-flex !important; 
+    align-items: center !important;
+    background-color: rgba(0, 0, 0, 0.05) !important; 
+    color: #1a73e8 !important;
+    border-radius: 12px !important; 
+    padding: 6px 14px !important;
+    margin-right: 10px !important; 
     margin-bottom: 10px !important;
     font-size: 0.9em !important; 
-    text-decoration: none !important; /* 坚决去掉下划线 */
-    font-weight: 500 !important; /* 字体稍微加粗一点 */
-    transition: all 0.25s ease !important; /* 丝滑的动效 */
+    text-decoration: none !important; 
+    font-weight: 500 !important;
+    transition: all 0.25s ease !important;
+}
+.post-tags a:hover, 
+.tag-cloud a:hover {
+    background-color: rgba(26, 123, 232, 0.1) !important;
+    transform: translateY(-2px) !important; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
 }
 
-/* 2. 鼠标放上去或者手机点击时的微动效（让它更有灵性） */
-.post-tags a:hover {
-    background-color: rgba(26, 123, 232, 0.1) !important; /* 悬浮时背景变成淡淡的蓝色 */
-    transform: translateY(-2px) !important; /* 微微上浮 */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important; /* 淡淡的阴影 */
-}
-
-/* 3. 如果你想让每个标签前面自动加上一个小标签图标（完美呼应上方的标签图标 🏷️） */
-.post-tags a::before {
-    content: "🏷️" !important; /* 自动在文字前塞入一个小标签Emoji */
-    margin-right: 6px !important; /* 离文字留点距离 */
-    font-size: 0.9em !important;
-}
