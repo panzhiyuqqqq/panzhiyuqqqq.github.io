@@ -16,7 +16,7 @@ draft: false
 
 <div style="text-align: center; margin: 20px 0;">
     <a href="https://steamcommunity.com/profiles/76561198999131471" target="_blank">
-        <img src="https://github-readme-steam-cards.vercel.app/api/recent?steamid=76561198999131471&theme=tokyonight" 
+        <img src="https://steam.panzhiyu.xin/api/recent?steamid=76561198999131471&theme=tokyonight" 
              alt="Steam 最近常玩" 
              style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s;"
              onmouseover="this.style.transform='scale(1.02)'"
