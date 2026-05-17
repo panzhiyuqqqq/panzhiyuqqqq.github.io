@@ -1,7 +1,7 @@
 ##########################################
 # 站点配置
 
-baseURL = "https://panzhiyuqqqq.github.io/"
+baseURL = "https://https://www.panzhiyu.xin/"
 title = "卧听风雨的博客"
 locale = "zh-CN"
 hasCJKLanguage = true
