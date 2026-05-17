@@ -2,20 +2,15 @@
 name: Deploy Hugo site to Pages
 
 on:
-  # 每当你向 main 分支推送代码时触发
   push:
-    branches: ["main"] # 💡 如果你的默认分支叫 master，请改成 "master"
-
-  # 允许你在 GitHub 网页端的 Actions 界面手动点击运行
+    branches: ["main"] # 💡 如果你的默认分支是 master，请改回 master
   workflow_dispatch:
 
-# 设置 GitHub 令牌的权限，允许其将网页发布到 Pages 托管区
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 确保同一时间只有一个部署任务在运行，防止版本冲突
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -25,16 +20,15 @@ defaults:
     shell: bash
 
 jobs:
-  # 任务一：在云端下载源码并用 Hugo 编译成静态 HTML
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.120.0 # 💡 这里的 Hugo 版本可以根据需要升级
+      HUGO_VERSION: 0.141.0
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive # 自动拉取你配置的主题子模块
+          submodules: recursive
           fetch-depth: 0
 
       - name: Setup Pages
@@ -42,8 +36,9 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Install Hugo
+        # 💡 就在下面这行，已经为你加上了必须的 env. 前缀！
         run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${{ HUGO_VERSION }}/hugo_extended_${{ HUGO_VERSION }}_linux-amd64.deb
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_extended_${{ env.HUGO_VERSION }}_linux-amd64.deb
           sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
       - name: Build with Hugo
@@ -59,9 +54,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public # 将编译出来的 public 静态文件夹打包上传
+          path: ./public
 
-  # 任务二：正式发布到公网
   deploy:
     environment:
       name: github-pages
