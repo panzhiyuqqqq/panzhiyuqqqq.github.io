@@ -1,39 +1,74 @@
-name: Deploy Hugo to Alibaba Cloud
+# 全自动构建 Hugo 并部署到 GitHub Pages 的标准工作流
+name: Deploy Hugo site to Pages
 
 on:
+  # 每当你向 main 分支推送代码时触发
   push:
-    branches:
-      - main  # 触发条件：推送到 main 分支
+    branches: ["main"] # 💡 如果你的默认分支叫 master，请改成 "master"
+
+  # 允许你在 GitHub 网页端的 Actions 界面手动点击运行
+  workflow_dispatch:
+
+# 设置 GitHub 令牌的权限，允许其将网页发布到 Pages 托管区
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 确保同一时间只有一个部署任务在运行，防止版本冲突
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
-  build-and-deploy:
+  # 任务一：在云端下载源码并用 Hugo 编译成静态 HTML
+  build:
     runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.120.0 # 💡 这里的 Hugo 版本可以根据需要升级
     steps:
-      # 1. 获取最新代码
-      - name: Checkout Code
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: recursive # 自动拉取你配置的主题子模块
           fetch-depth: 0
 
-      # 2. 自动配置 Hugo 环境（官方神仙插件，免去一切手动安装烦恼）
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: 'latest' # 永远使用最新版
-          extended: true         # 开启扩展版以支持 Meme 主题的样式编译
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
 
-      # 3. 编译静态网页
-      - name: Build Blog
-        run: hugo --minify
+      - name: Install Hugo
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${{ HUGO_VERSION }}/hugo_extended_${{ HUGO_VERSION }}_linux-amd64.deb
+          sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
-      # 4. 暴力传输到阿里云（无需服务器预装任何传输软件）
-      - name: Deploy to Server
-        uses: appleboy/scp-action@v0.1.7
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          host: ${{ secrets.SERVER_IP }}
-          username: "root"
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "public/*"
-          target: "/var/www/blog/"
-          strip_components: 1 # 神奇开关：剥离外层 public 文件夹，把里面的网页直接倒进 blog 里
+          path: ./public # 将编译出来的 public 静态文件夹打包上传
+
+  # 任务二：正式发布到公网
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
