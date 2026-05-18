@@ -139,50 +139,6 @@
   🌌 切换壁纸
 </button>
 
-<script>
-  // ⚙️ 状态机：0 = 默认主题背景， 1 = 随机二次元壁纸
-  let currentMode = localStorage.getItem('cyber_bg_mode') ? parseInt(localStorage.getItem('cyber_bg_mode')) : 0;
-  
-  // 🧠 记忆当前图片的完整 URL (包含时间戳)，防止刷新页面时图片变掉
-  let currentImageUrl = localStorage.getItem('cyber_bg_image') || "";
-
-  const bodyElement = document.body;
-  const switcherBtn = document.getElementById('bg-switcher');
-
-  // 渲染画面的执行函数
-  function applyBackground(mode, imageUrl) {
-    if (mode === 0) {
-       bodyElement.style.background = ""; // 恢复主题默认
-    } else if (mode === 1 && imageUrl !== "") {
-       // 注入带时间戳的 API 壁纸
-       bodyElement.style.background = `url('${imageUrl}')`;
-       bodyElement.style.backgroundSize = "cover";
-       bodyElement.style.backgroundAttachment = "fixed"; 
-       bodyElement.style.backgroundPosition = "center";
-       bodyElement.style.backgroundRepeat = "no-repeat";
-    }
-  }
-
-  // 页面一加载，立刻恢复访客上次离开时的状态
-  applyBackground(currentMode, currentImageUrl);
-
-  // 监听按钮点击事件
-  switcherBtn.addEventListener('click', () => {
-    // 模式在 0 和 1 之间无限切换
-    currentMode = (currentMode + 1) % 2; 
-    
-    if (currentMode === 1) {
-        // 🌟 核心魔法：强制刷新缓存！每次在 API 后面拼接当前系统毫秒级时间戳
-        currentImageUrl = "https://api.sretna.cn/api/anime.php?_t=" + new Date().getTime();
-        // 把这条独一无二的新链接存入本地缓存
-        localStorage.setItem('cyber_bg_image', currentImageUrl); 
-    }
-
-    // 立即执行渲染并保存当前模式
-    applyBackground(currentMode, currentImageUrl);
-    localStorage.setItem('cyber_bg_mode', currentMode); 
-  });
-</script>
 
 <style>
   /* 🍏 核心卡片质感：高级亚克力玻璃 */
