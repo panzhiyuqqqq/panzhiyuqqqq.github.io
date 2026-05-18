@@ -141,43 +141,45 @@
 
 
 <style>
-  /* 🍏 核心卡片质感：高级亚克力玻璃 */
-  body.has-wallpaper #main, 
-  body.has-wallpaper .main {
-      /* 底色调为 65% 透明度的白，给背景图留出透光空间 */
-      background: rgba(255, 255, 255, 0.35) !important; 
+  /* 🎯 同时狙击顶部导航栏和核心内容区 */
+  body.has-wallpaper .header,
+  body.has-wallpaper #main {
+      /* 统一样式，做成一整块玻璃 */
+      background: rgba(255, 255, 255, 0.65) !important;
       
-      /* 魔法核心：20px 强力模糊 + 150% 饱和度，让透过来的颜色极其柔和绚丽 */
-      backdrop-filter: blur(10px) saturate(150%) !important;
-      -webkit-backdrop-filter: blur(10px) saturate(150%) !important;
+      /* 核心修改：保持上回合调整好的微弱模糊 blur(8px) */
+      backdrop-filter: blur(8px) saturate(150%) !important;
+      -webkit-backdrop-filter: blur(8px) saturate(150%) !important;
       
-      /* 细节拉满：加一层半透明的高光白边，模拟物理玻璃边缘的反光 */
+      /* 下面这些样式保持不变，以确保美观和对比度 */
       border: 1px solid rgba(255, 255, 255, 0.5) !important; 
-      
-      /* 外观排版 */
       border-radius: 16px !important;
       padding: 40px !important;
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important; /* 极其柔和的弥散阴影 */
-      margin-top: 25px !important; 
-      margin-bottom: 25px !important;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
+      
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
-  /* 🖋️ 优雅排版：文字的高级护眼处理 */
-  body.has-wallpaper #main *, 
-  body.has-wallpaper .main * {
-      /* 放弃死板的纯黑，采用极具质感的深蓝灰 */
-      color: #2c3e50 !important; 
-      /* 给文字底部加一层极其微弱的白色光晕，把文字从复杂背景里“托”出来 */
-      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6) !important; 
+  /* 🔗 布局微调：消除 header 和 main 之间的空隙，让它们连起来 */
+  body.has-wallpaper .header {
+      margin-bottom: 0 !important; /* 消除 header 底部外边距 */
+      border-bottom-left-radius: 0 !important; /* 消除底部圆角，准备拼接 */
+      border-bottom-right-radius: 0 !important;
+      border-bottom: none !important; /* 消除中间的边框 */
   }
 
-  /* 让大标题更醒目一点 */
-  body.has-wallpaper #main h1, 
-  body.has-wallpaper #main h2, 
-  body.has-wallpaper #main h3 {
-      color: #1a252f !important;
-      font-weight: bold !important;
+  body.has-wallpaper #main {
+      margin-top: 0 !important; /* 消除 main 顶部外边距，贴紧 header */
+      border-top-left-radius: 0 !important; /* 消除顶部圆角，进行拼接 */
+      border-top-right-radius: 0 !important;
+      border-top: none !important; /* 消除中间的边框 */
+  }
+
+  /* 文字对比度处理保持不变，同时应用到 header */
+  body.has-wallpaper .header *,
+  body.has-wallpaper #main * {
+      color: #2c3e50 !important; /* 优雅的深蓝灰 */
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6) !important; 
   }
 </style>
 
