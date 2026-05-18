@@ -185,22 +185,36 @@
 </script>
 
 <style>
-  /* 精准狙击 .main-inner 容器 */
-  body.has-wallpaper .main-inner {
-      background: rgba(255, 255, 255, 0.85) !important; /* 85% 纯白透明底 */
-      backdrop-filter: blur(12px) !important;           /* 强烈高斯模糊 */
-      -webkit-backdrop-filter: blur(12px) !important;   /* 兼容苹果浏览器 */
-      border-radius: 15px;                              /* 高级圆角 */
-      padding: 30px;                                    /* 留出内边距呼吸感 */
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);        /* 悬浮阴影 */
-      transition: all 0.3s ease;                        /* 丝滑过渡 */
+  /* 🎯 直接锁定你截图里的 id="main" 核心内容区 */
+  body.has-wallpaper #main {
+      /* 【核心保护】92% 的超高纯度白底，黑字绝对清晰，同时保留一点点透光率 */
+      background-color: rgba(255, 255, 255, 0.92) !important; 
+      
+      /* 【背景虚化】强力高斯模糊，让背后的二次元图片变柔和 */
+      backdrop-filter: blur(15px) !important;
+      -webkit-backdrop-filter: blur(15px) !important;
+      
+      /* 【排版美化】变成一张精致的圆角悬浮卡片 */
+      border-radius: 16px !important; 
+      padding: 40px !important; /* 给四周留出极大的空白呼吸感，让文字绝对不贴边 */
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important; /* 高级悬浮阴影 */
+      
+      /* 【布局微调】和顶部的 header 导航栏拉开一点距离，防粘连 */
+      margin-top: 25px !important; 
+      margin-bottom: 25px !important;
+      
+      transition: all 0.3s ease;
   }
 
-  /* 适配夜间模式的深色毛玻璃 (如果你博客有黑夜模式开关的话) */
-  html[data-theme='dark'] body.has-wallpaper .main-inner,
-  html.dark body.has-wallpaper .main-inner,
-  body.theme-dark.has-wallpaper .main-inner {
-      background: rgba(30, 30, 30, 0.85) !important;
+  /* 🎯 强制让 #main 里面的文字保持高对比度的深色 */
+  body.has-wallpaper #main * {
+      text-shadow: none !important; /* 关掉可能存在的文字发光，防重影 */
+  }
+
+  /* 🌙 适配暗黑模式（如果你的博客可以切夜间模式的话） */
+  html[data-theme='dark'] body.has-wallpaper #main,
+  html.dark body.has-wallpaper #main {
+      background-color: rgba(30, 30, 30, 0.92) !important; /* 深灰色高级卡片 */
   }
 </style>
 
