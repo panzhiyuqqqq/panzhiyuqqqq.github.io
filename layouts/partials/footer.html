@@ -185,36 +185,43 @@
 </script>
 
 <style>
-  /* 🎯 直接锁定你截图里的 id="main" 核心内容区 */
-  body.has-wallpaper #main {
-      /* 【核心保护】92% 的超高纯度白底，黑字绝对清晰，同时保留一点点透光率 */
-      background-color: rgba(255, 255, 255, 0.92) !important; 
+  /* 🍏 核心卡片质感：高级亚克力玻璃 */
+  body.has-wallpaper #main, 
+  body.has-wallpaper .main {
+      /* 底色调为 65% 透明度的白，给背景图留出透光空间 */
+      background: rgba(255, 255, 255, 0.65) !important; 
       
-      /* 【背景虚化】强力高斯模糊，让背后的二次元图片变柔和 */
-      backdrop-filter: blur(15px) !important;
-      -webkit-backdrop-filter: blur(15px) !important;
+      /* 魔法核心：20px 强力模糊 + 150% 饱和度，让透过来的颜色极其柔和绚丽 */
+      backdrop-filter: blur(20px) saturate(150%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
       
-      /* 【排版美化】变成一张精致的圆角悬浮卡片 */
-      border-radius: 16px !important; 
-      padding: 40px !important; /* 给四周留出极大的空白呼吸感，让文字绝对不贴边 */
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important; /* 高级悬浮阴影 */
+      /* 细节拉满：加一层半透明的高光白边，模拟物理玻璃边缘的反光 */
+      border: 1px solid rgba(255, 255, 255, 0.5) !important; 
       
-      /* 【布局微调】和顶部的 header 导航栏拉开一点距离，防粘连 */
+      /* 外观排版 */
+      border-radius: 16px !important;
+      padding: 40px !important;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important; /* 极其柔和的弥散阴影 */
       margin-top: 25px !important; 
       margin-bottom: 25px !important;
-      
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
-  /* 🎯 强制让 #main 里面的文字保持高对比度的深色 */
-  body.has-wallpaper #main * {
-      text-shadow: none !important; /* 关掉可能存在的文字发光，防重影 */
+  /* 🖋️ 优雅排版：文字的高级护眼处理 */
+  body.has-wallpaper #main *, 
+  body.has-wallpaper .main * {
+      /* 放弃死板的纯黑，采用极具质感的深蓝灰 */
+      color: #2c3e50 !important; 
+      /* 给文字底部加一层极其微弱的白色光晕，把文字从复杂背景里“托”出来 */
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6) !important; 
   }
 
-  /* 🌙 适配暗黑模式（如果你的博客可以切夜间模式的话） */
-  html[data-theme='dark'] body.has-wallpaper #main,
-  html.dark body.has-wallpaper #main {
-      background-color: rgba(30, 30, 30, 0.92) !important; /* 深灰色高级卡片 */
+  /* 让大标题更醒目一点 */
+  body.has-wallpaper #main h1, 
+  body.has-wallpaper #main h2, 
+  body.has-wallpaper #main h3 {
+      color: #1a252f !important;
+      font-weight: bold !important;
   }
 </style>
 
