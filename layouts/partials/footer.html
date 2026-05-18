@@ -141,45 +141,46 @@
 
 
 <style>
-  /* 🎯 同时狙击顶部导航栏和核心内容区 */
+  /* 暴力消除所有外部间距，让容器占满全屏 */
+  body.has-wallpaper {
+      margin: 0 !important;
+      padding: 0 !important;
+  }
+
+  /* 精准狙击全局容器 .container，变成一块极高透光率的玻璃 */
+  body.has-wallpaper .container {
+      /* 🚨 核心修改 1：模糊度骤降至 blur(3px)，保留一点点饱和度提亮画面 */
+      backdrop-filter: blur(3px) saturate(110%) !important;
+      -webkit-backdrop-filter: blur(3px) saturate(110%) !important;
+      
+      /* 🚨 核心修改 2：底色调为更透的 45% 白色，让背景图完全透出来 */
+      background: rgba(255, 255, 255, 0.45) !important;
+      
+      /* 边框和阴影调弱一点，不喧宾夺主 */
+      border: 1px solid rgba(255, 255, 255, 0.3) !important; 
+      border-radius: 16px !important;
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1) !important; 
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+      /* 确保容器覆盖全屏并允许滚动 */
+      width: 100vw !important;
+      height: 100vh !important;
+      overflow-y: auto !important; 
+      padding: 40px !important;
+  }
+
+  /* 消除组件之间的外部空隙，背景彻底透明 */
   body.has-wallpaper .header,
   body.has-wallpaper #main {
-      /* 统一样式，做成一整块玻璃 */
-      background: rgba(255, 255, 255, 0.65) !important;
-      
-      /* 核心修改：保持上回合调整好的微弱模糊 blur(8px) */
-      backdrop-filter: blur(8px) saturate(150%) !important;
-      -webkit-backdrop-filter: blur(8px) saturate(150%) !important;
-      
-      /* 下面这些样式保持不变，以确保美观和对比度 */
-      border: 1px solid rgba(255, 255, 255, 0.5) !important; 
-      border-radius: 16px !important;
-      padding: 40px !important;
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
-      
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      margin: 0 !important; 
+      background: transparent !important; 
   }
 
-  /* 🔗 布局微调：消除 header 和 main 之间的空隙，让它们连起来 */
-  body.has-wallpaper .header {
-      margin-bottom: 0 !important; /* 消除 header 底部外边距 */
-      border-bottom-left-radius: 0 !important; /* 消除底部圆角，准备拼接 */
-      border-bottom-right-radius: 0 !important;
-      border-bottom: none !important; /* 消除中间的边框 */
-  }
-
-  body.has-wallpaper #main {
-      margin-top: 0 !important; /* 消除 main 顶部外边距，贴紧 header */
-      border-top-left-radius: 0 !important; /* 消除顶部圆角，进行拼接 */
-      border-top-right-radius: 0 !important;
-      border-top: none !important; /* 消除中间的边框 */
-  }
-
-  /* 文字对比度处理保持不变，同时应用到 header */
-  body.has-wallpaper .header *,
-  body.has-wallpaper #main * {
-      color: #2c3e50 !important; /* 优雅的深蓝灰 */
-      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6) !important; 
+  /* 🚨 核心修改 3：因为背景变清晰了，必须加强文字的“白光描边”，防止黑字和黑背景撞色 */
+  body.has-wallpaper .container * {
+      color: #1a252f !important; /* 极深的蓝灰色 */
+      text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.95), 
+                   1px 1px 2px rgba(255, 255, 255, 0.8) !important; /* 双层强力发光护盾 */
   }
 </style>
 
