@@ -140,49 +140,7 @@
 </button>
 
 
-<style>
-  /* 暴力消除所有外部间距，让容器占满全屏 */
-  body.has-wallpaper {
-      margin: 0 !important;
-      padding: 0 !important;
-  }
 
-  /* 精准狙击全局容器 .container，变成一块极高透光率的玻璃 */
-  body.has-wallpaper .container {
-      /* 🚨 核心修改 1：模糊度骤降至 blur(3px)，保留一点点饱和度提亮画面 */
-      backdrop-filter: blur(3px) saturate(110%) !important;
-      -webkit-backdrop-filter: blur(3px) saturate(110%) !important;
-      
-      /* 🚨 核心修改 2：底色调为更透的 45% 白色，让背景图完全透出来 */
-      background: rgba(255, 255, 255, 0.45) !important;
-      
-      /* 边框和阴影调弱一点，不喧宾夺主 */
-      border: 1px solid rgba(255, 255, 255, 0.3) !important; 
-      border-radius: 16px !important;
-      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1) !important; 
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-      /* 确保容器覆盖全屏并允许滚动 */
-      width: 100vw !important;
-      height: 100vh !important;
-      overflow-y: auto !important; 
-      padding: 40px !important;
-  }
-
-  /* 消除组件之间的外部空隙，背景彻底透明 */
-  body.has-wallpaper .header,
-  body.has-wallpaper #main {
-      margin: 0 !important; 
-      background: transparent !important; 
-  }
-
-  /* 🚨 核心修改 3：因为背景变清晰了，必须加强文字的“白光描边”，防止黑字和黑背景撞色 */
-  body.has-wallpaper .container * {
-      color: #1a252f !important; /* 极深的蓝灰色 */
-      text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.95), 
-                   1px 1px 2px rgba(255, 255, 255, 0.8) !important; /* 双层强力发光护盾 */
-  }
-</style>
 
 <script>
   let currentMode = localStorage.getItem('cyber_bg_mode') ? parseInt(localStorage.getItem('cyber_bg_mode')) : 0;
