@@ -117,3 +117,69 @@
     document.getElementById('read-progress').style.width = scrolled + '%';
   });
 </script>
+
+
+
+<button id="bg-switcher" style="
+    position: fixed; 
+    bottom: 80px; /* 留出你原来的看板娘或返回顶部按钮的空间 */
+    right: 20px; 
+    z-index: 9999; 
+    padding: 8px 16px; 
+    border-radius: 30px; 
+    border: 1px solid rgba(255,255,255,0.2); 
+    background: rgba(0,0,0,0.6); 
+    color: #fff; 
+    font-size: 14px;
+    cursor: pointer; 
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+  🌌 切换壁纸
+</button>
+
+<script>
+  // 【你的私人壁纸库】在这里填入你想要的背景！
+  const blogBackgrounds = [
+    "none", // 0: 默认状态（保留你 Hugo 主题原本的黑/白背景）
+    
+    
+    // 2: 也可以直接引用网上的动态 GIF 或者高级图片
+    "url('https://api.dujin.org/pic/acg/')" // 这是一个每次刷新随机二次元图的公共API，仅作演示
+  ];
+
+  // 从浏览器本地缓存中读取访客上次选的背景，没有的话就默认是 0
+  let currentBgIndex = localStorage.getItem('cyber_blog_bg') ? parseInt(localStorage.getItem('cyber_blog_bg')) : 0;
+  
+  const bodyElement = document.body;
+  const switcherBtn = document.getElementById('bg-switcher');
+
+  // 渲染背景的函数
+  function applyBackground(index) {
+    if (blogBackgrounds[index] === "none") {
+       // 恢复主题默认
+       bodyElement.style.background = ""; 
+    } else {
+       // 注入新背景
+       bodyElement.style.background = blogBackgrounds[index];
+       bodyElement.style.backgroundSize = "cover";
+       bodyElement.style.backgroundAttachment = "fixed"; // 这一步很关键！让背景固定，只有文章滑动
+       bodyElement.style.backgroundPosition = "center";
+       bodyElement.style.backgroundRepeat = "no-repeat";
+    }
+  }
+
+  // 页面一加载，立刻执行渲染，防止页面闪烁
+  applyBackground(currentBgIndex);
+
+  // 监听按钮点击事件，循环切换
+  switcherBtn.addEventListener('click', () => {
+    // 索引加 1，如果超过了壁纸库的数量，就回到 0
+    currentBgIndex = (currentBgIndex + 1) % blogBackgrounds.length;
+    applyBackground(currentBgIndex);
+    
+    // 把当前选择写入本地缓存，永远记住
+    localStorage.setItem('cyber_blog_bg', currentBgIndex); 
+  });
+</script>

@@ -4,29 +4,176 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">卧听风雨的博客</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2026-05-16T14:46:54&#43;08:00</updated>
-    <id>http://localhost:1313/</id>
-    <link rel="alternate" type="text/html" href="http://localhost:1313/" />
-    <link rel="self" type="application/atom&#43;xml" href="http://localhost:1313/atom.xml" />
+    <updated>2026-05-18T12:42:17&#43;08:00</updated>
+    <id>http://localhost:1313//www.panzhiyu.xin/</id>
+    <link rel="alternate" type="text/html" href="http://localhost:1313//www.panzhiyu.xin/" />
+    <link rel="self" type="application/atom&#43;xml" href="http://localhost:1313//www.panzhiyu.xin/atom.xml" />
     
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.161.0">Hugo</generator>
         <entry>
             <title type="text">
+摆烂每一天</title>
+            <link rel="alternate" type="text/html" href="http://localhost:1313//www.panzhiyu.xin/posts/%E6%91%86%E7%83%82%E6%AF%8F%E4%B8%80%E5%A4%A9/" />
+            <id>http://localhost:1313//www.panzhiyu.xin/posts/%E6%91%86%E7%83%82%E6%AF%8F%E4%B8%80%E5%A4%A9/</id>
+            <updated>2026-05-16T23:53:05&#43;08:00</updated>
+            <published>2026-05-16T23:50:07&#43;08:00</published>
+            <author>
+                    <uri>http://localhost:1313/www.panzhiyu.xin/</uri>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">
+                &lt;p&gt;又到期中考试周了，啥也没复习，看书就想吐，整个人一事无成，29号的演唱会，权当做杀戮后的狂欢，哎，大学，你个八股先生！！！！！！！！！
+&lt;img src=&#34;http://47.96.117.225:8080/i/2026/05/16/6a0892d4b33ca.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+                
+&lt;blockquote&gt;
+&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313//www.panzhiyu.xin/posts/%E6%91%86%E7%83%82%E6%AF%8F%E4%B8%80%E5%A4%A9/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313//www.panzhiyu.xin/posts/%E6%91%86%E7%83%82%E6%AF%8F%E4%B8%80%E5%A4%A9/&lt;/a&gt;&lt;br&gt;
+博客公告：博客现已开通邮件订阅，欢迎&lt;a href=&#34;https://username.substack.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通过 Substack 订阅&lt;/a&gt;支持我的创作！&lt;/p&gt;
+&lt;/blockquote&gt;
+            </summary>
+            
+                <content type="html">
+                    
+&lt;p&gt;又到期中考试周了，啥也没复习，看书就想吐，整个人一事无成，29号的演唱会，权当做杀戮后的狂欢，哎，大学，你个八股先生！！！！！！！！！
+&lt;img src=&#34;http://47.96.117.225:8080/i/2026/05/16/6a0892d4b33ca.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+
+                    
+&lt;blockquote&gt;
+&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313//www.panzhiyu.xin/posts/%E6%91%86%E7%83%82%E6%AF%8F%E4%B8%80%E5%A4%A9/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313//www.panzhiyu.xin/posts/%E6%91%86%E7%83%82%E6%AF%8F%E4%B8%80%E5%A4%A9/&lt;/a&gt;&lt;br&gt;
+博客公告：博客现已开通邮件订阅，欢迎&lt;a href=&#34;https://username.substack.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通过 Substack 订阅&lt;/a&gt;支持我的创作！&lt;/p&gt;
+&lt;/blockquote&gt;
+                </content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="http://localhost:1313//www.panzhiyu.xin/tags/%E6%91%86%E7%83%82/" term="摆烂" label="摆烂" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">
+今日份美好</title>
+            <link rel="alternate" type="text/html" href="http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E6%97%A5%E4%BB%BD%E7%BE%8E%E5%A5%BD/" />
+            <id>http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E6%97%A5%E4%BB%BD%E7%BE%8E%E5%A5%BD/</id>
+            <updated>2026-05-17T23:37:48&#43;08:00</updated>
+            <published>2026-05-16T21:54:44&#43;08:00</published>
+            <author>
+                    <uri>http://localhost:1313/www.panzhiyu.xin/</uri>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">
+                &lt;p&gt;像岩石鳞次栉比的白云，风云变幻的晚间，美好的一天又快要结束了
+&lt;img src=&#34;https://cdn.statically.io/gh/panzhiyuqqqq/image/main//image/28080c36a664d94698cb3f140159936c.jpg&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://cdn.statically.io/gh/panzhiyuqqqq/image/main//image/bf9958649c7960ed07dfb91e4aed195b.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+                
+&lt;blockquote&gt;
+&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E6%97%A5%E4%BB%BD%E7%BE%8E%E5%A5%BD/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E6%97%A5%E4%BB%BD%E7%BE%8E%E5%A5%BD/&lt;/a&gt;&lt;br&gt;
+博客公告：博客现已开通邮件订阅，欢迎&lt;a href=&#34;https://username.substack.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通过 Substack 订阅&lt;/a&gt;支持我的创作！&lt;/p&gt;
+&lt;/blockquote&gt;
+            </summary>
+            
+                <content type="html">
+                    
+&lt;p&gt;像岩石鳞次栉比的白云，风云变幻的晚间，美好的一天又快要结束了
+&lt;img src=&#34;https://cdn.statically.io/gh/panzhiyuqqqq/image/main//image/28080c36a664d94698cb3f140159936c.jpg&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://cdn.statically.io/gh/panzhiyuqqqq/image/main//image/bf9958649c7960ed07dfb91e4aed195b.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+
+                    
+&lt;blockquote&gt;
+&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E6%97%A5%E4%BB%BD%E7%BE%8E%E5%A5%BD/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E6%97%A5%E4%BB%BD%E7%BE%8E%E5%A5%BD/&lt;/a&gt;&lt;br&gt;
+博客公告：博客现已开通邮件订阅，欢迎&lt;a href=&#34;https://username.substack.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通过 Substack 订阅&lt;/a&gt;支持我的创作！&lt;/p&gt;
+&lt;/blockquote&gt;
+                </content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="http://localhost:1313//www.panzhiyu.xin/tags/%E6%91%84%E5%BD%B1/" term="摄影" label="摄影" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">
+测试</title>
+            <link rel="alternate" type="text/html" href="http://localhost:1313//www.panzhiyu.xin/posts/%E6%B5%8B%E8%AF%95/" />
+            <id>http://localhost:1313//www.panzhiyu.xin/posts/%E6%B5%8B%E8%AF%95/</id>
+            <updated>2026-05-16T21:13:16&#43;08:00</updated>
+            <published>2026-05-16T21:13:16&#43;08:00</published>
+            <author>
+                    <uri>http://localhost:1313/www.panzhiyu.xin/</uri>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">
+                
+                
+&lt;blockquote&gt;
+&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313//www.panzhiyu.xin/posts/%E6%B5%8B%E8%AF%95/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313//www.panzhiyu.xin/posts/%E6%B5%8B%E8%AF%95/&lt;/a&gt;&lt;br&gt;
+博客公告：博客现已开通邮件订阅，欢迎&lt;a href=&#34;https://username.substack.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通过 Substack 订阅&lt;/a&gt;支持我的创作！&lt;/p&gt;
+&lt;/blockquote&gt;
+            </summary>
+            
+                <content type="html">
+                    
+
+                    
+&lt;blockquote&gt;
+&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313//www.panzhiyu.xin/posts/%E6%B5%8B%E8%AF%95/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313//www.panzhiyu.xin/posts/%E6%B5%8B%E8%AF%95/&lt;/a&gt;&lt;br&gt;
+博客公告：博客现已开通邮件订阅，欢迎&lt;a href=&#34;https://username.substack.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通过 Substack 订阅&lt;/a&gt;支持我的创作！&lt;/p&gt;
+&lt;/blockquote&gt;
+                </content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">
 终于完工啦嘿嘿</title>
-            <link rel="alternate" type="text/html" href="http://localhost:1313/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/" />
-            <id>http://localhost:1313/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/</id>
+            <link rel="alternate" type="text/html" href="http://localhost:1313//www.panzhiyu.xin/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/" />
+            <id>http://localhost:1313//www.panzhiyu.xin/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/</id>
             <updated>2026-05-16T13:57:47&#43;08:00</updated>
             <published>2026-05-16T13:50:48&#43;08:00</published>
             <author>
-                    <uri>http://localhost:1313/</uri>
+                    <uri>http://localhost:1313/www.panzhiyu.xin/</uri>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">
                 &lt;p&gt;折腾了几个小时，人生中第一个网站终于是“潦草地”完成了，虽然但是也依靠了Gemini，但查阅资料啥的也真的折腾，不过喜悦终究大于一切，就这样，一步又一步！！！
 &lt;img src=&#34;https://cdn.statically.io/gh/panzhiyuqqqq/image/main//img/2cc74cc800ff6dd3.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
                 
 &lt;blockquote&gt;
-&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/&lt;/a&gt;&lt;br&gt;
+&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313//www.panzhiyu.xin/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313//www.panzhiyu.xin/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/&lt;/a&gt;&lt;br&gt;
 博客公告：博客现已开通邮件订阅，欢迎&lt;a href=&#34;https://username.substack.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通过 Substack 订阅&lt;/a&gt;支持我的创作！&lt;/p&gt;
 &lt;/blockquote&gt;
             </summary>
@@ -38,7 +185,7 @@
 
                     
 &lt;blockquote&gt;
-&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/&lt;/a&gt;&lt;br&gt;
+&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313//www.panzhiyu.xin/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313//www.panzhiyu.xin/posts/%E7%BB%88%E4%BA%8E%E5%AE%8C%E5%B7%A5%E5%95%A6%E5%98%BF%E5%98%BF/&lt;/a&gt;&lt;br&gt;
 博客公告：博客现已开通邮件订阅，欢迎&lt;a href=&#34;https://username.substack.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通过 Substack 订阅&lt;/a&gt;支持我的创作！&lt;/p&gt;
 &lt;/blockquote&gt;
                 </content>
@@ -55,7 +202,7 @@
                             
                             
                             
-                                <category scheme="http://localhost:1313/tags/%E5%BF%83%E5%BE%97/" term="心得" label="心得" />
+                                <category scheme="http://localhost:1313//www.panzhiyu.xin/tags/%E5%BF%83%E5%BE%97/" term="心得" label="心得" />
                             
                         
                     
@@ -66,19 +213,19 @@
         <entry>
             <title type="text">
 今天拍到了好看的晚霞</title>
-            <link rel="alternate" type="text/html" href="http://localhost:1313/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/" />
-            <id>http://localhost:1313/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/</id>
+            <link rel="alternate" type="text/html" href="http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/" />
+            <id>http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/</id>
             <updated>2026-05-16T12:39:31&#43;08:00</updated>
             <published>2026-05-16T03:36:58&#43;08:00</published>
             <author>
-                    <uri>http://localhost:1313/</uri>
+                    <uri>http://localhost:1313/www.panzhiyu.xin/</uri>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">
                 &lt;p&gt;&lt;img src=&#34;https://cdn.statically.io/gh/panzhiyuqqqq/image/main//img/431f148bbd02b67142fc468343494801.jpg&#34; alt=&#34;&#34;&gt;
 吃完饭，骑车于林间小道，抬手一拍，便绘就黄昏里的一抹淡然。&lt;/p&gt;
                 
 &lt;blockquote&gt;
-&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/&lt;/a&gt;&lt;br&gt;
+&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/&lt;/a&gt;&lt;br&gt;
 博客公告：博客现已开通邮件订阅，欢迎&lt;a href=&#34;https://username.substack.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通过 Substack 订阅&lt;/a&gt;支持我的创作！&lt;/p&gt;
 &lt;/blockquote&gt;
             </summary>
@@ -90,7 +237,7 @@
 
                     
 &lt;blockquote&gt;
-&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/&lt;/a&gt;&lt;br&gt;
+&lt;p&gt;阅读原文：&lt;a href=&#34;http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313//www.panzhiyu.xin/posts/%E4%BB%8A%E5%A4%A9%E6%8B%8D%E5%88%B0%E4%BA%86%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%99%9A%E9%9C%9E/&lt;/a&gt;&lt;br&gt;
 博客公告：博客现已开通邮件订阅，欢迎&lt;a href=&#34;https://username.substack.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通过 Substack 订阅&lt;/a&gt;支持我的创作！&lt;/p&gt;
 &lt;/blockquote&gt;
                 </content>
@@ -105,7 +252,7 @@
                             
                             
                             
-                                <category scheme="http://localhost:1313/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" term="日常记录" label="日常记录" />
+                                <category scheme="http://localhost:1313//www.panzhiyu.xin/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" term="日常记录" label="日常记录" />
                             
                         
                     
@@ -115,19 +262,19 @@
                             
                             
                             
-                                <category scheme="http://localhost:1313/tags/%E6%91%84%E5%BD%B1/" term="摄影" label="摄影" />
+                                <category scheme="http://localhost:1313//www.panzhiyu.xin/tags/%E6%91%84%E5%BD%B1/" term="摄影" label="摄影" />
                             
                         
                             
                             
                             
-                                <category scheme="http://localhost:1313/tags/%E6%99%9A%E9%9C%9E/" term="晚霞" label="晚霞" />
+                                <category scheme="http://localhost:1313//www.panzhiyu.xin/tags/%E6%99%9A%E9%9C%9E/" term="晚霞" label="晚霞" />
                             
                         
                             
                             
                             
-                                <category scheme="http://localhost:1313/tags/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87/" term="生活碎片" label="生活碎片" />
+                                <category scheme="http://localhost:1313//www.panzhiyu.xin/tags/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87/" term="生活碎片" label="生活碎片" />
                             
                         
                     
