@@ -123,7 +123,7 @@
 <button id="bg-switcher" style="
     position: fixed; 
     bottom: 80px; /* 留出你原来的看板娘或返回顶部按钮的空间 */
-    right: 20px; 
+    left: 20px; 
     z-index: 9999; 
     padding: 8px 16px; 
     border-radius: 30px; 
@@ -140,46 +140,105 @@
 </button>
 
 <script>
-  // 【你的私人壁纸库】在这里填入你想要的背景！
-  const blogBackgrounds = [
-    "none", // 0: 默认状态（保留你 Hugo 主题原本的黑/白背景）
-    
-    
-    // 2: 也可以直接引用网上的动态 GIF 或者高级图片
-    "url('https://api.sretna.cn/api/anime.php')" // 这是一个每次刷新随机二次元图的公共API，仅作演示
-  ];
-
-  // 从浏览器本地缓存中读取访客上次选的背景，没有的话就默认是 0
-  let currentBgIndex = localStorage.getItem('cyber_blog_bg') ? parseInt(localStorage.getItem('cyber_blog_bg')) : 0;
+  // ⚙️ 状态机：0 = 默认主题背景， 1 = 随机二次元壁纸
+  let currentMode = localStorage.getItem('cyber_bg_mode') ? parseInt(localStorage.getItem('cyber_bg_mode')) : 0;
   
+  // 🧠 记忆当前图片的完整 URL (包含时间戳)，防止刷新页面时图片变掉
+  let currentImageUrl = localStorage.getItem('cyber_bg_image') || "";
+
   const bodyElement = document.body;
   const switcherBtn = document.getElementById('bg-switcher');
 
-  // 渲染背景的函数
-  function applyBackground(index) {
-    if (blogBackgrounds[index] === "none") {
-       // 恢复主题默认
-       bodyElement.style.background = ""; 
-    } else {
-       // 注入新背景
-       bodyElement.style.background = blogBackgrounds[index];
+  // 渲染画面的执行函数
+  function applyBackground(mode, imageUrl) {
+    if (mode === 0) {
+       bodyElement.style.background = ""; // 恢复主题默认
+    } else if (mode === 1 && imageUrl !== "") {
+       // 注入带时间戳的 API 壁纸
+       bodyElement.style.background = `url('${imageUrl}')`;
        bodyElement.style.backgroundSize = "cover";
-       bodyElement.style.backgroundAttachment = "fixed"; // 这一步很关键！让背景固定，只有文章滑动
+       bodyElement.style.backgroundAttachment = "fixed"; 
        bodyElement.style.backgroundPosition = "center";
        bodyElement.style.backgroundRepeat = "no-repeat";
     }
   }
 
-  // 页面一加载，立刻执行渲染，防止页面闪烁
-  applyBackground(currentBgIndex);
+  // 页面一加载，立刻恢复访客上次离开时的状态
+  applyBackground(currentMode, currentImageUrl);
 
-  // 监听按钮点击事件，循环切换
+  // 监听按钮点击事件
   switcherBtn.addEventListener('click', () => {
-    // 索引加 1，如果超过了壁纸库的数量，就回到 0
-    currentBgIndex = (currentBgIndex + 1) % blogBackgrounds.length;
-    applyBackground(currentBgIndex);
+    // 模式在 0 和 1 之间无限切换
+    currentMode = (currentMode + 1) % 2; 
     
-    // 把当前选择写入本地缓存，永远记住
-    localStorage.setItem('cyber_blog_bg', currentBgIndex); 
+    if (currentMode === 1) {
+        // 🌟 核心魔法：强制刷新缓存！每次在 API 后面拼接当前系统毫秒级时间戳
+        currentImageUrl = "https://api.sretna.cn/api/anime.php?_t=" + new Date().getTime();
+        // 把这条独一无二的新链接存入本地缓存
+        localStorage.setItem('cyber_bg_image', currentImageUrl); 
+    }
+
+    // 立即执行渲染并保存当前模式
+    applyBackground(currentMode, currentImageUrl);
+    localStorage.setItem('cyber_bg_mode', currentMode); 
+  });
+</script>
+
+<style>
+  /* 精准狙击 .main-inner 容器 */
+  body.has-wallpaper .main-inner {
+      background: rgba(255, 255, 255, 0.85) !important; /* 85% 纯白透明底 */
+      backdrop-filter: blur(12px) !important;           /* 强烈高斯模糊 */
+      -webkit-backdrop-filter: blur(12px) !important;   /* 兼容苹果浏览器 */
+      border-radius: 15px;                              /* 高级圆角 */
+      padding: 30px;                                    /* 留出内边距呼吸感 */
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);        /* 悬浮阴影 */
+      transition: all 0.3s ease;                        /* 丝滑过渡 */
+  }
+
+  /* 适配夜间模式的深色毛玻璃 (如果你博客有黑夜模式开关的话) */
+  html[data-theme='dark'] body.has-wallpaper .main-inner,
+  html.dark body.has-wallpaper .main-inner,
+  body.theme-dark.has-wallpaper .main-inner {
+      background: rgba(30, 30, 30, 0.85) !important;
+  }
+</style>
+
+<script>
+  let currentMode = localStorage.getItem('cyber_bg_mode') ? parseInt(localStorage.getItem('cyber_bg_mode')) : 0;
+  let currentImageUrl = localStorage.getItem('cyber_bg_image') || "";
+
+  const bodyElement = document.body;
+  const switcherBtn = document.getElementById('bg-switcher');
+
+  function applyBackground(mode, imageUrl) {
+    if (mode === 0) {
+       bodyElement.style.background = ""; 
+       // 🚨 撤销毛玻璃：移除状态标签
+       bodyElement.classList.remove('has-wallpaper'); 
+    } else if (mode === 1 && imageUrl !== "") {
+       bodyElement.style.background = `url('${imageUrl}')`;
+       bodyElement.style.backgroundSize = "cover";
+       bodyElement.style.backgroundAttachment = "fixed"; 
+       bodyElement.style.backgroundPosition = "center";
+       bodyElement.style.backgroundRepeat = "no-repeat";
+       
+       // 🚨 启动毛玻璃：给网页打上状态标签！
+       bodyElement.classList.add('has-wallpaper'); 
+    }
+  }
+
+  applyBackground(currentMode, currentImageUrl);
+
+  switcherBtn.addEventListener('click', () => {
+    currentMode = (currentMode + 1) % 2; 
+    
+    if (currentMode === 1) {
+        currentImageUrl = "https://api.sretna.cn/api/anime.php?_t=" + new Date().getTime();
+        localStorage.setItem('cyber_bg_image', currentImageUrl); 
+    }
+
+    applyBackground(currentMode, currentImageUrl);
+    localStorage.setItem('cyber_bg_mode', currentMode); 
   });
 </script>
